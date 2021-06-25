@@ -1,0 +1,15 @@
+{
+  "name": "geth-pow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "configure": "geth init --datadir=nodes/bootnode genesis.json && geth init --datadir=nodes/node1 genesis.json",
+    "empty": "rm -rf nodes/bootnode/geth && rm -rf nodes/node1/geth",
+    "initialize": "npm run empty && npm run configure",
+    "start": "bash scripts/start.sh",
+    "bootnode": "bash scripts/bootnode.sh",
+    "node1": "bash scripts/node1.sh",
+    "bootnode-console": "geth attach nodes/bootnode/geth.ipc",
+    "node1-console": "geth attach nodes/node1/geth.ipc"
+  }
+}
