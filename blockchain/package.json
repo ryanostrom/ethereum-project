@@ -1,5 +1,5 @@
 {
-  "name": "geth-pow",
+  "name": "Eth PoW Blockchain",
   "version": "0.1.0",
   "private": true,
   "scripts": {
