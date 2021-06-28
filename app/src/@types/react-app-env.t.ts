@@ -2,15 +2,11 @@ declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production' | 'test';
     readonly REACT_APP_API_URL: string;
-    readonly REACT_APP_BLOCKCHAIN_URL: string;
   }
 }
 
 interface AppConfig {
   api: {
-    url: string;
-  };
-  blockchain: {
     url: string;
   };
 }

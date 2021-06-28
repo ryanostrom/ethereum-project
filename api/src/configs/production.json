@@ -1,0 +1,10 @@
+{
+    "env": "production",
+    "dbConfig": {
+        "host": "eth-db",
+        "user": "ethapi",
+        "password": "",
+        "database": "ethapi"
+    },
+    "secretKey": "secretKey"
+}

@@ -1,6 +1,7 @@
 {
-  "name": "Eth PoW Blockchain",
+  "name": "Eth-PoW-Blockchain",
   "version": "0.1.0",
+  "author": "Ryan Ostrom",
   "private": true,
   "scripts": {
     "configure": "geth init --datadir=nodes/bootnode genesis.json && geth init --datadir=nodes/node1 genesis.json",

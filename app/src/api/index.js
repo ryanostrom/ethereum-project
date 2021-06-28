@@ -1,7 +1,10 @@
 import { user } from './user';
+import { account } from './account';
 
-export const API = {
-  user
+export default {
+  user,
+  account,
 };
 
 export * from './user';
+export * from './account';

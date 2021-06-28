@@ -16,7 +16,6 @@ export interface UserCreateRequest {
   lastName: string;
   email: string;
   password: string;
-  token: string;
 }
 
 export const initialUserState: User = {

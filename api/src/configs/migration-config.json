@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ethapi",
+    "password": "",
+    "database": "ethapi",
+    "host": "eth-db",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "ethapi",
+    "password": "",
+    "database": "ethapi",
+    "host": "eth-db",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "ethapi",
+    "password": "",
+    "database": "ethapi",
+    "host": "eth-db",
+    "dialect": "postgres"
+  }
+}

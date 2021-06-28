@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { User } from 'api';
+import api, { User } from 'api';
 
 interface Props {
   user: User;
@@ -8,7 +8,10 @@ interface Props {
 
 const Dashboard: FC<Props> = ({ user, deregisterUser }: Props): JSX.Element => {
   const onLogout = () => deregisterUser();
-
+  const onAccounts = () => {
+    console.log('### get accounts')
+    api.accounts.get()
+  }
   return (
     <>
       <h2>Dashboard</h2>
@@ -16,6 +19,7 @@ const Dashboard: FC<Props> = ({ user, deregisterUser }: Props): JSX.Element => {
         Hello {user.firstName} {user.lastName}
       </p>
       <button onClick={onLogout}>Logout</button>
+      <button onClick={onAccounts}>Get Accounts</button>
     </>
   );
 };
