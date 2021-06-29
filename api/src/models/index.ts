@@ -1,7 +1,8 @@
-import config from 'config';
 import Sequelize from 'sequelize';
+import config from 'config';
 import { dbConfig } from '@interfaces/db.interface';
-import { logger } from '@utils/logger';
+
+import Users from './users.ts'
 
 const { host, user, password, database }: dbConfig = config.get('dbConfig');
 
@@ -13,9 +14,8 @@ const sequelize = new Sequelize.Sequelize(database, user, password, {
 
 sequelize.authenticate();
 
-const DB = {
-  sequelize, // connection instance (RAW queries)
-  Sequelize, // library
+module.exports = {
+  sequelize,
+  Sequelize,
+  Users: Users(sequelize),
 };
-
-export default DB;

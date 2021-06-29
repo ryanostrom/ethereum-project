@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import DB from '@databases';
+import DB from '@models/index.ts';
 import { CreateUserDto } from '@dtos/users.dto';
 import HttpException from '@exceptions/HttpException';
 import { User } from '@interfaces/users.interface';
