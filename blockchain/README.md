@@ -66,15 +66,12 @@ $ yarn initialize
 
 #### 2. Run Local Network
 
-Start private network
+Start private network for bootnode and node1
 ```bash
 $ yarn run dev
 ```
 
-This command will perform the following:
-
-  - Start a bootnode that acts as a router for one-to-many nodes, and also as the zeroeth node on the network
-  - Start node1 (connected to bootnode)
-  - Start bootnode console
-  - Start node1 console
-
+Start consoles for bootnode and node1
+```bash
+$ yarn run dev
+```
