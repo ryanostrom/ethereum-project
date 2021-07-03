@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # cat nodes/node1/account.txt
 account=`cat nodes/node1/account.txt`

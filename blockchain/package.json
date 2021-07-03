@@ -8,6 +8,7 @@
     "empty": "rm -rf nodes/bootnode/geth && rm -rf nodes/node1/geth",
     "initialize": "npm run empty && npm run configure",
     "start": "bash scripts/start.sh",
+    "dev": "bash scripts/dev.sh",
     "bootnode": "bash scripts/bootnode.sh",
     "node1": "bash scripts/node1.sh",
     "bootnode-console": "geth attach nodes/bootnode/geth.ipc",

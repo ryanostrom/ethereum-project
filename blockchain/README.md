@@ -41,7 +41,21 @@ Congrats! You've created two accounts, one for your bootnode and another for nod
 
 ## III. Basic Usage
 
-### 1. Initialize state
+### Option 1: Docker
+
+From the root of mono repo:
+
+```bash
+$ docker compose up
+```
+
+This will tail the eth chain logs for node1.
+
+### Option 2: Linux
+
+Note: Linux is useful in liue of Docker to have direct acces to eth console for both bootnode and node1 without going through API.
+
+#### 1. Initialize state
 
 Initializes config based on current genesis.json
 
@@ -50,11 +64,11 @@ If config is already initialized, will cleans bootnode and node1 to empty state 
 $ yarn initialize
 ```
 
-### 3. Run Local Network
+#### 2. Run Local Network
 
 Start private network
 ```bash
-$ yarn start
+$ yarn run dev
 ```
 
 This command will perform the following:

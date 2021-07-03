@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 account=`cat nodes/bootnode/account.txt`
 

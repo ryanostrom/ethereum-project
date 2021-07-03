@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  blockchain:
+    build:
+      context: .
+      target: blockchain
+    image: eth/blockchain
+    command: yarn run start
+    container_name: eth-blockchain
+    environment:
+      NODE_ENV: development
+    ports:
+      - "30310:30310"
+    restart: unless-stopped
+    volumes:
+      - ./blockchain/:/app/blockchain
