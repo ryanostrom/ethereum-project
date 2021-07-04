@@ -14,5 +14,8 @@
     "node1": "bash scripts/node1.sh",
     "bootnode-console": "geth attach nodes/bootnode/geth.ipc",
     "node1-console": "geth attach nodes/node1/geth.ipc"
+  },
+  "dependencies": {
+    "net": "^1.0.2"
   }
 }
