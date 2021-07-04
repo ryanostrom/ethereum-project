@@ -16,3 +16,11 @@ geth --datadir nodes/node1 \
   --mine \
   --miner.threads=1 \
   --miner.etherbase="0x$account"
+
+  # --http \
+  # --http.port 8545 \
+  # --http.api personal,eth,net,web3 \
+  # --http.corsdomain '*'
+  # --ws.port 3334 \
+  # --ws.api eth,net,web3 \
+  # --ws.origins '*'\
