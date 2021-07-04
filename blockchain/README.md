@@ -68,10 +68,10 @@ $ yarn initialize
 
 Start private network for bootnode and node1
 ```bash
-$ yarn run dev
+$ yarn run debug
 ```
 
 Start consoles for bootnode and node1
 ```bash
-$ yarn run dev
+$ yarn run console
 ```

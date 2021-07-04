@@ -1,6 +1,4 @@
-import HttpException from '@exceptions/HttpException';
 import Web3 from 'web3';
-import net from 'net';
 
 const promisify = (inner) =>
   new Promise((resolve, reject) =>
@@ -28,15 +26,41 @@ const proxiedWeb3Handler = {
 };
 
 class BlockchainService {
-  public web3 = new Proxy(
-    new Web3(
-      new Web3.providers.IpcProvider(
-        '/app/blockchain/nodes/bootnode/geth.ipc',
-        net,
-      ),
-    ),
-    proxiedWeb3Handler,
-  );
+
+  constructor() {
+    try {
+      const wsProvider = new Web3.providers.WebsocketProvider('ws://localhost:8546', {
+        timeout: 30000,
+        keepalive: true,
+        keepaliveInterval: 60000,
+        reconnect: {
+          auto: true,
+          delay: 100,
+          maxAttempts: 3,
+          onTimeout: false,
+        }
+      })
+
+      const web3 = new Web3(wsProvider);
+      const proxy = new Proxy(web3, proxiedWeb3Handler);
+      this.web3 = proxy;
+
+      this.debug();
+    } catch (error) {
+      console.log('### web3 init error', error)
+    }
+  }
+
+  public async debug = () => {
+    try {
+      const interval = setInterval(() => {
+        const provider = this.web3.currentProvider
+        console.log('### connected', provider.connected)
+      }, 10000)
+    } catch (err) {
+      console.log('### web3 debug error', error)
+    }
+  }
 
   public async block(): any {
     try {
@@ -44,7 +68,7 @@ class BlockchainService {
       console.log('### block', block)
       return block
     } catch (err) {
-      console.log('### web3::block error', err)
+      console.log('### web3 block error', err)
       return null;
     }
   }

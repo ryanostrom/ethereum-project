@@ -13,4 +13,3 @@ geth --datadir nodes/bootnode \
   --miner.threads=1 \
   --miner.etherbase="0x$account"
 
-  # --nat=none

@@ -7,7 +7,7 @@
     "configure": "geth init --datadir=nodes/bootnode genesis.json && geth init --datadir=nodes/node1 genesis.json",
     "empty": "rm -rf nodes/bootnode/geth && rm -rf nodes/node1/geth",
     "initialize": "npm run empty && npm run configure",
-    "dev": "bash scripts/dev.sh",
+    "debug": "bash scripts/debug.sh",
     "start": "bash scripts/start.sh",
     "console": "bash scripts/console.sh",
     "bootnode": "bash scripts/bootnode.sh",

@@ -18,6 +18,8 @@ COPY api /app/api
 WORKDIR /app/api
 RUN npm i
 EXPOSE 5000
+EXPOSE 8545
+EXPOSE 8546
 
 # 3  - Initialize blockchain
 FROM base as blockchain

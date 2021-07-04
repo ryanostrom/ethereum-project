@@ -58,7 +58,7 @@ services:
     command: yarn run start
     container_name: eth-blockchain
     ports:
-      - "30310:30310"
+      - "8546:8546"
     environment:
       NODE_ENV: development
     volumes:
