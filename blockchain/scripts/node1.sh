@@ -12,6 +12,7 @@ geth --datadir nodes/node1 \
   --port 30311 \
   --bootnodes "$enr" \
   --ws \
+  --ws.addr 127.0.0.1 \
   --ws.port 8546 \
   --ws.api personal,eth,net,web3 \
   --ws.origins '*' \

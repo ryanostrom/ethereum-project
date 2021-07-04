@@ -29,7 +29,7 @@ class BlockchainService {
 
   constructor() {
     try {
-      const wsProvider = new Web3.providers.WebsocketProvider('ws://localhost:8546', {
+      const wsProvider = new Web3.providers.WebsocketProvider('http://localhost/ws', {
         timeout: 30000,
         keepalive: true,
         keepaliveInterval: 60000,
@@ -56,7 +56,7 @@ class BlockchainService {
       const interval = setInterval(() => {
         const provider = this.web3.currentProvider
         console.log('### connected', provider.connected)
-      }, 10000)
+      }, 1000)
     } catch (err) {
       console.log('### web3 debug error', error)
     }
