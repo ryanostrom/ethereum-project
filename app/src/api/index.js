@@ -1,10 +1,10 @@
 import { user } from './user';
-import { account } from './account';
+import { block } from './block';
 
 export default {
   user,
-  account,
+  block,
 };
 
 export * from './user';
-export * from './account';
+export * from './block';

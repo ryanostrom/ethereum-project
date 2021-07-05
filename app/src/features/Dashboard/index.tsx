@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import api, { User } from 'api';
 
 interface Props {
@@ -7,10 +7,13 @@ interface Props {
 }
 
 const Dashboard: FC<Props> = ({ user, deregisterUser }: Props): JSX.Element => {
+  const [block, setBlock] = useState(null)
+
   const onLogout = () => deregisterUser();
-  const onAccounts = () => {
+  const onBlock = async () => {
     console.log('### get accounts')
-    api.accounts.get()
+    const response = await api.block.get()
+    setBlock(JSON.stringify(response.data.block))
   }
   return (
     <>
@@ -19,7 +22,8 @@ const Dashboard: FC<Props> = ({ user, deregisterUser }: Props): JSX.Element => {
         Hello {user.firstName} {user.lastName}
       </p>
       <button onClick={onLogout}>Logout</button>
-      <button onClick={onAccounts}>Get Accounts</button>
+      <button onClick={onBlock}>Get block</button>
+      {block ? (<div>{block}</div>) : null}
     </>
   );
 };
