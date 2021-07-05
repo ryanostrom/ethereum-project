@@ -25,50 +25,31 @@ const proxiedWeb3Handler = {
   },
 };
 
+const wsOptions = {
+  timeout: 30000,
+  keepalive: true,
+  keepaliveInterval: 60000,
+  reconnect: {
+    auto: true,
+    delay: 100,
+    maxAttempts: 3,
+    onTimeout: false,
+  }
+}
+
 class BlockchainService {
-
   constructor() {
-    try {
-      const wsProvider = new Web3.providers.WebsocketProvider('http://localhost/ws', {
-        timeout: 30000,
-        keepalive: true,
-        keepaliveInterval: 60000,
-        reconnect: {
-          auto: true,
-          delay: 100,
-          maxAttempts: 3,
-          onTimeout: false,
-        }
-      })
-
-      const web3 = new Web3(wsProvider);
-      const proxy = new Proxy(web3, proxiedWeb3Handler);
-      this.web3 = proxy;
-
-      this.debug();
-    } catch (error) {
-      console.log('### web3 init error', error)
-    }
-  }
-
-  public async debug = () => {
-    try {
-      const interval = setInterval(() => {
-        const provider = this.web3.currentProvider
-        console.log('### connected', provider.connected)
-      }, 1000)
-    } catch (err) {
-      console.log('### web3 debug error', error)
-    }
-  }
+    const wsProvider = new Web3.providers.WebsocketProvider('ws://localhost:8546', wsOptions)
+    const web3 = new Web3(wsProvider);
+    const proxy = new Proxy(web3, proxiedWeb3Handler);
+    this.web3 = proxy;
+}
 
   public async block(): any {
     try {
       const block = await this.web3.eth.getBlock('latest');
-      console.log('### block', block)
       return block
     } catch (err) {
-      console.log('### web3 block error', err)
       return null;
     }
   }

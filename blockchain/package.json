@@ -4,8 +4,10 @@
   "author": "Ryan Ostrom",
   "private": true,
   "scripts": {
-    "configure": "geth init --datadir=nodes/bootnode genesis.json && geth init --datadir=nodes/node1 genesis.json",
     "empty": "rm -rf nodes/bootnode/geth && rm -rf nodes/node1/geth",
+    "configure": "npm run configure-bootnode && npm run configure-node1",
+    "configure-bootnode": "nohup geth init --datadir=nodes/bootnode genesis.json > /dev/null 2>&1&",
+    "configure-node1": "nohup geth init --datadir=nodes/node1 genesis.json > /dev/null 2>&1&",
     "initialize": "npm run empty && npm run configure",
     "debug": "bash scripts/debug.sh",
     "start": "bash scripts/start.sh",

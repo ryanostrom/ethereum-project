@@ -6,7 +6,7 @@
 enr=`geth attach nodes/bootnode/geth.ipc --exec admin.nodeInfo.enr | bc`
 
 # Start Node1
-geth --datadir nodes/node1 \
+nohup geth --datadir nodes/node1 \
   --networkid 1515 \
   --nat=none \
   --port 30311 \
@@ -16,7 +16,7 @@ geth --datadir nodes/node1 \
   --ws.port 8546 \
   --ws.api personal,eth,net,web3 \
   --ws.origins '*' \
-
+ > /dev/null 2>&1&
   # --mine \
   # --miner.threads=1 \
   # --miner.etherbase="0x$account"

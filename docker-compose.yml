@@ -27,6 +27,7 @@ services:
       DB__DATABASE: ethapi
     volumes:
       - ./api:/app/api
+      - ./blockchain/:/app/blockchain
       - /app/api/node_modules
     restart: 'unless-stopped'
     networks:
@@ -47,23 +48,6 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
-    networks:
-      - backend
-
-  blockchain:
-    build:
-      context: .
-      target: blockchain
-    image: eth/blockchain
-    command: yarn run start
-    container_name: eth-blockchain
-    ports:
-      - "8546:8546"
-    environment:
-      NODE_ENV: development
-    volumes:
-      - ./blockchain/:/app/blockchain
-    restart: unless-stopped
     networks:
       - backend
 

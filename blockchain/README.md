@@ -37,34 +37,30 @@ $ echo "$accountKey" > nodes/node1/account.txt
 $ echo "$password" > nodes/node1/password.txt
 ```
 
-Congrats! You've created two accounts, one for your bootnode and another for node1. You can now begin using your local ethereum network, the following guide.
+### Step 3: Initialize bootnode and node1
+
+Initializes config based on current genesis.json
+
+If config is already initialized, will cleans bootnode and node1 to empty state and re-initialize config based on current genesis.json. This command can be run to reset your nodes to clean state.
+```bash
+$ yarn initialize
+```
+
+Congrats! You've created two accounts, one for your bootnode and another for node1. You've also initialized both nodes. You can now begin using your local ethereum network, the following guide.
 
 ## III. Basic Usage
 
 ### Option 1: Docker
 
-From the root of mono repo:
+From the root of mono repo (will also run the rest of the mono repo project)
 
 ```bash
 $ docker compose up
 ```
 
-This will tail the eth chain logs for node1.
-
 ### Option 2: Linux
 
 Note: Linux is useful in liue of Docker to have direct acces to eth console for both bootnode and node1 without going through API.
-
-#### 1. Initialize state
-
-Initializes config based on current genesis.json
-
-If config is already initialized, will cleans bootnode and node1 to empty state and re-initialize config based on current genesis.json.
-```bash
-$ yarn initialize
-```
-
-#### 2. Run Local Network
 
 Start private network for bootnode and node1
 ```bash

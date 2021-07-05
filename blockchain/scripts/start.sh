@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function bootnode {
-  npm run bootnode &
+  npm run bootnode
 }
 
 bootnode

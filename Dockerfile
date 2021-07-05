@@ -18,25 +18,19 @@ COPY api /app/api
 WORKDIR /app/api
 RUN npm i
 EXPOSE 5000
-EXPOSE 8545
-EXPOSE 8546
 
-# 3  - Initialize blockchain
-FROM base as blockchain
-WORKDIR /app/blockchain
-RUN yarn initialize
-CMD ["yarn", "run", "start"]
-
-# 4 - Run API (dev)
 FROM base as api-dev
+
+# 3 - Run API (dev)
 RUN chmod +x /app/api/docker-entrypoint.sh
 ENTRYPOINT [ "sh", "/app/api/docker-entrypoint.sh" ]
 ENV NODE_ENV development
 WORKDIR /app/api
 CMD ["npm", "run", "dev"]
 
-# 5 - Run API (prod)
 FROM base as api-prod
+
+# 3 - Run API (prod)
 WORKDIR /app
 ENV NODE_ENV production
 WORKDIR /app/api
