@@ -11,7 +11,7 @@ This project leverages a private PoW blockchain as opposed to one of the two tes
 
 ## Current State of Project
 
-The project is currently building locally with React, and provisioned by Docker for a NodeJS API, PostgreSQL DB and Geth PoW network, which is generated with some light bash scripting in the docker instance. The React UI is currently able to retrieve and display data the latest block data via an API call to NodeJS, which leverages Web3  to retrieve data from the local chain.
+The project is currently building locally with React, and provisioned by Docker for a NodeJS API, PostgreSQL DB and Geth PoW network, which is generated with some light bash scripting in the docker instance. The React UI is currently able to retrieve and display data of the latest block data via an API call to NodeJS, which leverages Web3  to retrieve data from the local chain.
 
 ## Future State of Project
 
@@ -37,7 +37,8 @@ To run the app locally:
 // project root
 $ cd app
 $ nvm use
-$ npm i
+$ yarn i
+$ yarn start
 ```
 
 ### API / Blockchain / Postgres
