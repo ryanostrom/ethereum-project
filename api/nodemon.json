@@ -1,12 +1,14 @@
 {
+    "verbose": true,
     "watch": [
         "src",
         ".env"
     ],
-    "ext": "js,ts,json",
+    "ext": "js,ts,json,sol",
     "ignore": [
         "src/**/*.spec.ts",
-        "src/**/*.test.ts"
+        "src/**/*.test.ts",
+        "src/logs/**"
     ],
     "exec": "ts-node -r tsconfig-paths/register --transpile-only src/server.ts"
 }

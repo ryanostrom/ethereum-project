@@ -42,12 +42,16 @@ class BlockchainService {
     const wsProvider = new Web3.providers.WebsocketProvider('ws://localhost:8546', wsOptions)
     const web3 = new Web3(wsProvider);
     const proxy = new Proxy(web3, proxiedWeb3Handler);
+
+    // async/await sometimes doesn't work as expected, wrap web3 with promise proxy to ensure async/await
     this.web3 = proxy;
+    // Proxied web3 disables function constructor functionality required for functionality such as `new web3.eth.Contract()`
+    this._web3 = web3;
 }
 
   public async block(): any {
     try {
-      const block = await this.web3.eth.getBlock('latest');
+      const block = await this._web3.eth.getBlock('latest');
       return block
     } catch (err) {
       return null;

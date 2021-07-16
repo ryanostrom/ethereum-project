@@ -12,6 +12,7 @@ import swaggerUi from 'swagger-ui-express';
 import Routes from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import ContractsService from '@services/contracts.service';
 
 class App {
   public app: express.Application;
@@ -35,6 +36,24 @@ class App {
       logger.info(`======= ENV: ${this.env} =======`);
       logger.info(`🚀 App listening on the port ${this.port}`);
       logger.info(`=================================`);
+
+      // For testing purposes only; create contract on app load
+      const contracts = new ContractsService();
+      const contract = contracts.compile('VehicleTitle');
+      contracts.deploy({
+        contract,
+        from: '<account>',
+        gas: '1000000',
+        args: [
+          '<account>',
+          '1234567890ABCDEFG',
+          'Ford',
+          'F150',
+          '2015',
+          'XLT',
+          'black',
+        ]
+      });
     });
   }
 

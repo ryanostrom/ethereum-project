@@ -17,6 +17,8 @@ nohup geth --datadir nodes/node1 \
   --ws.api personal,eth,net,web3 \
   --ws.origins '*' \
  > /dev/null 2>&1&
+  # --unlock $account \
+  # --password nodes/node1/password.txt \
   # --mine \
   # --miner.threads=1 \
   # --miner.etherbase="0x$account"
